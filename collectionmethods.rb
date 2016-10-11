@@ -11,24 +11,24 @@ end
 
 
 homes = [
-  Home.new("Nizar's place", "San Juan", 2, 42),
-  Home.new("Fernando's place", "Seville", 5, 47),
-  Home.new("Josh's place", "Pittsburgh", 3, 41),
-  Home.new("Gonzalo's place", "Málaga", 2, 45),
-  Home.new("Ariel's place", "San Juan", 4, 49)
+  Home.new("Nizar's place", "San Juan", 2, 42.0),
+  Home.new("Fernando's place", "Seville", 5, 47.0),
+  Home.new("Josh's place", "Pittsburgh", 3, 41.0),
+  Home.new("Gonzalo's place", "Málaga", 2, 45.0),
+  Home.new("Ariel's place", "San Juan", 4, 49.0)
 ]
 
 
-homes.each do |hm|
-  puts "#{hm.name} in #{hm.city} is ¢#{hm.price} per night"
-end
-
-# prices = homes.map do |hm|
-# 	hm.price
+# homes.each do |hm|
+#   puts "#{hm.name} in #{hm.city} is ¢#{hm.price} per night"
 # end
 
-# puts prices
-=begin
+prices = homes.map do |hm|
+	hm.price
+end
+
+puts prices
+
 sum_prices = 0
 average_price = 0
 
@@ -38,10 +38,9 @@ prices.each do |pr|
 end
 
 puts sum_prices
+puts "Average price #{average_price}"
 
-puts average_price
-
-
+=begin
 puts prices.reduce(0) {|sum_prices, pr| sum_prices + pr}
 
 puts average_price = sum_prices / prices.length
