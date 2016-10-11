@@ -1,3 +1,4 @@
+
 class Home
   attr_reader(:name, :city, :capacity, :price)
 
@@ -9,47 +10,6 @@ class Home
   end
 end
 
-
-homes = [
-  Home.new("Nizar's place", "San Juan", 2, 42.0),
-  Home.new("Fernando's place", "Seville", 5, 47.0),
-  Home.new("Josh's place", "Pittsburgh", 3, 41.0),
-  Home.new("Gonzalo's place", "Málaga", 2, 45.0),
-  Home.new("Ariel's place", "San Juan", 4, 49.0)
-]
-
-
-# homes.each do |hm|
-#   puts "#{hm.name} in #{hm.city} is ¢#{hm.price} per night"
-# end
-
-prices = homes.map do |hm|
-	hm.price
-end
-
-puts prices
-
-sum_prices = 0
-average_price = 0
-
-=begin
-prices.each do |pr|
-	sum_prices = sum_prices + pr 
-	average_price = sum_prices / prices.length
-end
-
-puts sum_prices
-puts "Average price #{average_price}"
-=end
-
-puts sum_prices = prices.reduce(0) {|sum_prices, pr| sum_prices + pr}
-
-puts "Average price #{average_price = sum_prices / prices.length}"
-
-
-
-#EJERCICIO FINAL
-=begin
 homes = [
   Home.new("Nizar's place", "San Juan", 2, 42),
   Home.new("Fernando's place", "Seville", 5, 47),
@@ -68,6 +28,22 @@ homes = [
 # end
 
 
+puts "Sort by? 1: price  2: capacity"
+type_of_sort = gets.chomp
+if type_of_sort == "1"
+  homes_price_order = homes.sort do |hm1, hm2|
+    hm1.price <=> hm2.price
+  end
+  homes_price_order.each {|hm| puts hm.price}
+elsif type_of_sort == "2"
+  homes_capacity_order = homes.sort do |hm1, hm2|
+    hm1.capacity <=> hm2.price
+  end
+  homes_capacity_order.each {|hm| puts hm.capacity}
+else
+  puts "Wrong input, run the program again"
+end
+    
 # homes.sort
 
 # prices = homes.map {|hm| hm.price}
@@ -80,7 +56,7 @@ favourite_home = gets.chomp
 
 
 puts favourite_home
-=end
+
 
 
 
