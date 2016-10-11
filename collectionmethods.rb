@@ -1,6 +1,6 @@
 
 class Home
-  attr_reader(:name, :city, :capacity, :price)
+  attr_accessor(:name, :city, :capacity, :price)
 
   def initialize(name, city, capacity, price)
     @name = name
@@ -44,22 +44,32 @@ homes = [
 #   puts "Wrong input, run the program again"
 # end
     
-puts "Type the city you are interested in"
-city_interested = gets.chomp
+# puts "Type the city you are interested in"
+# city_interested = gets.chomp
 
-homes_interested = homes.select do |hm|
-  hm.city == city_interested
+# homes_interested = homes.select do |hm|
+#   hm.city == city_interested
+# end
+
+# homes_interested.each do |hm|
+#   puts "#{hm.name} in #{hm.city} is ¢#{hm.price} per night and has capacity for #{hm.capacity}"
+# end
+
+# sum_prices_interested = homes_interested.reduce(0.0) { |sum, hm| sum + hm.price }
+
+# average_price_interested = sum_prices_interested/homes_interested.length
+
+# puts "The average price is #{average_price_interested}"
+
+puts "Type the price you want to pay"
+price_interested = gets.to_i
+
+homes_interested_price = homes.find do |hm|
+  hm.price == price_interested
 end
 
-homes_interested.each do |hm|
-  puts "#{hm.name} in #{hm.city} is ¢#{hm.price} per night and has capacity for #{hm.capacity}"
-end
+puts homes_interested_price.name
 
-sum_prices_interested = homes_interested.reduce(0.0) { |sum, hm| sum + hm.price }
-
-average_price_interested = sum_prices_interested/homes_interested.length
-
-puts "The average price is #{average_price_interested}"
 
 
 
