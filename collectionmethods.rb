@@ -32,6 +32,7 @@ puts prices
 sum_prices = 0
 average_price = 0
 
+=begin
 prices.each do |pr|
 	sum_prices = sum_prices + pr 
 	average_price = sum_prices / prices.length
@@ -39,13 +40,13 @@ end
 
 puts sum_prices
 puts "Average price #{average_price}"
-
-=begin
-puts prices.reduce(0) {|sum_prices, pr| sum_prices + pr}
-
-puts average_price = sum_prices / prices.length
-
 =end
+
+puts sum_prices = prices.reduce(0) {|sum_prices, pr| sum_prices + pr}
+
+puts "Average price #{average_price = sum_prices / prices.length}"
+
+
 
 #EJERCICIO FINAL
 =begin
