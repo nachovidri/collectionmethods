@@ -28,35 +28,38 @@ homes = [
 # end
 
 
-puts "Sort by? 1: price  2: capacity"
-type_of_sort = gets.chomp
-if type_of_sort == "1"
-  homes_price_order = homes.sort do |hm1, hm2|
-    hm1.price <=> hm2.price
-  end
-  homes_price_order.each {|hm| puts hm.price}
-elsif type_of_sort == "2"
-  homes_capacity_order = homes.sort do |hm1, hm2|
-    hm1.capacity <=> hm2.price
-  end
-  homes_capacity_order.each {|hm| puts hm.capacity}
-else
-  puts "Wrong input, run the program again"
-end
+# puts "Sort by? 1: price  2: capacity"
+# type_of_sort = gets.chomp
+# if type_of_sort == "1"
+#   homes_price_order = homes.sort do |hm1, hm2|
+#     hm1.price <=> hm2.price
+#   end
+#   homes_price_order.each {|hm| puts hm.price}
+# elsif type_of_sort == "2"
+#   homes_capacity_order = homes.sort do |hm1, hm2|
+#     hm1.capacity <=> hm2.price
+#   end
+#   homes_capacity_order.each {|hm| puts hm.capacity}
+# else
+#   puts "Wrong input, run the program again"
+# end
     
-# homes.sort
+puts "Type the city you are interested in"
+city_interested = gets.chomp
 
-# prices = homes.map {|hm| hm.price}
+homes_interested = homes.select do |hm|
+  hm.city == city_interested
+end
 
-# prices.sort
+homes_interested.each do |hm|
+  puts "#{hm.name} in #{hm.city} is ¢#{hm.price} per night and has capacity for #{hm.capacity}"
+end
 
-# puts prices
+sum_prices_interested = homes_interested.reduce(0.0) { |sum, hm| sum + hm.price }
 
-favourite_home = gets.chomp
+average_price_interested = sum_prices_interested/homes_interested.length
 
-
-puts favourite_home
-
+puts "The average price is #{average_price_interested}"
 
 
 
